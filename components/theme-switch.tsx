@@ -1,8 +1,8 @@
 "use client";
 
 import { FC } from "react";
-import { VisuallyHidden } from "@react-aria/visually-hidden";
-import { SwitchProps, useSwitch } from "@nextui-org/switch";
+import { VisuallyHidden } from 'react-aria'
+import { SwitchProps, useSwitch } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 import {useIsSSR} from "@react-aria/ssr";
 import clsx from "clsx";
@@ -34,9 +34,9 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
 		getWrapperProps,
 	} = useSwitch({
 		isSelected: theme === "light",
-    "aria-label": `Switch to ${theme === "light" ? "dark" : "light"} mode`,
+		"aria-label": `Switch to ${theme === "light" ? "dark" : "light"} mode`,
 		onChange,
-	});
+	} as SwitchProps & { onChange: () => void });
 
 	return (
 		<Component
