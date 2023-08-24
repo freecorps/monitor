@@ -28,6 +28,12 @@ export default function Home() {
 				>
 					Documentação
 				</Link>
+				<Link as={NextLink}
+					href={"/previsao"}
+					className={buttonStyles({ color: "danger", radius: "full", variant: "shadow" })}
+				>
+					Previsão
+				</Link>
 				<Link
 					isExternal
 					as={NextLink}

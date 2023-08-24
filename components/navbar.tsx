@@ -42,6 +42,22 @@ export const Navbar = () => {
 						<p className="font-bold text-inherit">Meteoro</p>
 					</NextLink>
 				</NavbarBrand>
+
+				<ul className="hidden lg:flex gap-4 justify-start ml-2">
+				<NavbarItem key={"previsao"}>
+					<NextLink
+						className={clsx(
+							linkStyles({ color: "foreground" }),
+							"data-[active=true]:text-primary data-[active=true]:font-medium"
+						)}
+						color="foreground"
+						href={'/previsao'}
+					>
+						{'Previsão'}
+					</NextLink>
+				</NavbarItem>
+			</ul>
+
 			</NavbarContent>
 
 			<NavbarContent
@@ -66,15 +82,24 @@ export const Navbar = () => {
 
 			<NavbarMenu>
 				<div className="mx-4 mt-2 flex flex-col gap-2">
-						<NavbarMenuItem key={"github-navmenu"}>
-							<Link
-								color={"primary"}
-								href="https://github.com/freecorps/meteoro"
-								size="lg"
-							>
-								{'Github'}
-							</Link>
-						</NavbarMenuItem>
+					<NavbarMenuItem key={"github-navmenu"}>
+						<Link
+							color={"primary"}
+							href="https://github.com/freecorps/meteoro"
+							size="lg"
+						>
+							{'Github'}
+						</Link>
+					</NavbarMenuItem>
+					<NavbarMenuItem key={"previsao-navmenu"}>
+						<Link
+							color={"primary"}
+							href="/previsao"
+							size="lg"
+						>
+							{'Previsão'}
+						</Link>
+					</NavbarMenuItem>
 				</div>
 			</NavbarMenu>
 		</NextUINavbar>
