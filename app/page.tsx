@@ -7,7 +7,7 @@ import { Code } from "@nextui-org/react"
 import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
+import { GithubIcon, Logo, BookIcon } from "@/components/icons";
 
 export default function Home() {
 	return (
@@ -26,12 +26,14 @@ export default function Home() {
 					href={"https://github.com/freecorps/meteoro/wiki"}
 					className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
 				>
+					<BookIcon size={20}/>
 					Documentação
 				</Link>
 				<Link as={NextLink}
 					href={"/previsao"}
 					className={buttonStyles({ color: "danger", radius: "full", variant: "shadow" })}
 				>
+					<Logo size={20}/>
 					Previsão
 				</Link>
 				<Link
