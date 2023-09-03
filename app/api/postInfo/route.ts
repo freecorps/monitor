@@ -1,5 +1,11 @@
 import { MongoClient } from 'mongodb';
 
+interface data {
+    IdDoESP: string
+    temperatura: number
+    umidade: number
+}
+
 export async function POST(request: Request) {
   const client = new MongoClient(process.env.MONGODB_URI!);
   
@@ -8,11 +14,17 @@ export async function POST(request: Request) {
     await client.connect();
     
     // Obtenha os dados da requisição
-    const data = await request.json();
+    const data = await request.json() as data;
+
+    const sendData = {
+        temperatura: data.temperatura,
+        umidade: data.umidade,
+        data: new Date()
+    }
     
     // Insira os dados no banco de dados
     const db = client.db(process.env.MONGODB_DB);
-    const result = await db.collection('dados').insertOne(data);
+    const result = await db.collection(data.IdDoESP).insertOne(sendData);
     
     return new Response(JSON.stringify({ insertedId: result.insertedId }), {
       status: 200,
