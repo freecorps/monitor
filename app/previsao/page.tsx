@@ -71,8 +71,8 @@ export default function Previsao() {
           <h2>Dados do {selectedEsp}</h2>
           <div className='columns-1 gap-4'>
             {Object.keys(espData[0]).filter(key => key !== 'data' && key !== '_id').map(key => (
-              <div>
-                <DataCard key={key} title={key} data={espData} />
+              <div key={key}>
+                <DataCard title={key} data={espData} />
                 <Spacer y={1} />
               </div>
             ))}
