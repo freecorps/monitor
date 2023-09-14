@@ -6,7 +6,7 @@ import DataCard from '@/components/dataCard';
 
 export default function Previsao() {
   const [espList, setEspList] = useState([]);
-  const [selectedEsp, setSelectedEsp] = useState<string | null>(null);
+  const [selectedEsp, setSelectedEsp] = useState<string | undefined>(undefined);
   const [espData, setEspData] = useState(null);
 
   useEffect(() => {
