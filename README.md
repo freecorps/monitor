@@ -1,8 +1,8 @@
-# Next.js & NextUI Template
+# Estações Meteorológicas com ESPs 8266 & Next.js
 
-This is a template for creating applications using Next.js 13 (app directory) and NextUI (v2).
+Este projeto foi desenvolvido para monitorar e exibir dados de estações meteorológicas baseadas em ESPs 8266. Utilizamos o Next.js para a interface do usuário e integramos com um banco de dados MongoDB para armazenar e recuperar os dados das estações.
 
-## Technologies Used
+## Tecnologias Utilizadas
 
 - [Next.js 13](https://nextjs.org/docs/getting-started)
 - [NextUI v2](https://nextui.org/)
@@ -11,30 +11,30 @@ This is a template for creating applications using Next.js 13 (app directory) an
 - [TypeScript](https://www.typescriptlang.org/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [next-themes](https://github.com/pacocoursey/next-themes)
+- [MongoDB](https://www.mongodb.com/pt-br)
+- [ESP8266](https://www.espressif.com/en/products/socs/esp8266)
 
-## How to Use
+## Como Utilizar
 
+### Instalação das Dependências
 
-### Use the template with create-next-app
-
-To create a new project based on this template using `create-next-app`, run the following command:
-
-```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
-```
-
-### Install dependencies
+Antes de iniciar o servidor de desenvolvimento, instale as dependências necessárias:
 
 ```bash
 npm install
 ```
 
-### Run the development server
+### Executando o Servidor de Desenvolvimento
+
+Para iniciar o servidor de desenvolvimento, execute o seguinte comando:
 
 ```bash
 npm run dev
 ```
 
+## Contribuições
+Se você deseja contribuir para este projeto, sinta-se à vontade para enviar pull requests ou abrir issues com sugestões e feedbacks.
+
 ## License
 
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+Licensed under the [MIT license](https://github.com/freecorps/meteoro/blob/master/LICENSE).
