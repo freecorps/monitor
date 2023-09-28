@@ -2,11 +2,8 @@
 
 import NextLink from "next/link";
 import { Link } from "@nextui-org/react";
-import { Snippet } from "@nextui-org/react";
-import { Code } from "@nextui-org/react"
 import { button as buttonStyles } from "@nextui-org/theme";
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
+import { title } from "@/components/primitives";
 import { GithubIcon, Logo, BookIcon } from "@/components/icons";
 
 export default function Home() {
