@@ -2,14 +2,18 @@
 
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { MapContainer, TileLayer, Marker, useMap, Popup} from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMap, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-// @ts-ignore
-import L from 'leaflet';
-// @ts-ignore
-import { Icon } from 'leaflet';
 import ReactDOMServer from 'react-dom/server';
 import { BiMap } from "react-icons/bi"
+
+// A condicional para garantir que o código só seja executado no lado do cliente
+let L;
+let Icon: new (arg0: { iconUrl: string; iconSize: number[]; }) => any;
+if (typeof window !== "undefined") {
+  L = require('leaflet');
+  Icon = L.Icon;
+}
 
 type ESP = {
   _id: string;
@@ -49,11 +53,15 @@ function BoundsSetter({ bounds }: { bounds: [[number, number], [number, number]]
 function createSvgIcon(svg: JSX.Element) {
   const svgString = ReactDOMServer.renderToString(svg);
   const iconUrl = new URL(`data:image/svg+xml;base64,${btoa(svgString)}`);
-  
-  return new Icon({
-    iconUrl: iconUrl.href,
-    iconSize: [30, 30]
-  });
+
+  // A condicional para garantir que o código só seja executado no lado do cliente
+  if (Icon) {
+    return new Icon({
+      iconUrl: iconUrl.href,
+      iconSize: [30, 30]
+    });
+  }
+  return null;
 }
 
 export default function Previsao() {
@@ -90,8 +98,6 @@ export default function Previsao() {
 
   const beerIcon = createSvgIcon(<BiMap />);
 
-
-
   return (
     <div>
       <MapContainer style={{ width: '650px', height: '400px' }}>
@@ -108,7 +114,3 @@ export default function Previsao() {
     </div>
   );
 }
-
-
-
-
