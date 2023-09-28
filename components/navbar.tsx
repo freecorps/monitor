@@ -56,6 +56,18 @@ export const Navbar = () => {
 						{'Previsão'}
 					</NextLink>
 				</NavbarItem>
+				<NavbarItem key={"Mapa"}>
+					<NextLink
+						className={clsx(
+							linkStyles({ color: "foreground" }),
+							"data-[active=true]:text-primary data-[active=true]:font-medium"
+						)}
+						color="foreground"
+						href={'/mapa'}
+					>
+						{'Mapa'}
+					</NextLink>
+				</NavbarItem>
 			</ul>
 
 			</NavbarContent>
