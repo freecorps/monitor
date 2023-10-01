@@ -24,6 +24,7 @@
     "framer-motion": "^10.15.1",
     "intl-messageformat": "^10.1.0",
     "leaflet": "^1.9.4",
+    "ml5": "^0.12.2",
     "mongodb": "^6.0.0",
     "next": "^13.4.19",
     "next-themes": "^0.2.1",
