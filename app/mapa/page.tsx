@@ -7,10 +7,6 @@ import ReactDOMServer from 'react-dom/server';
 import { BiMap } from "react-icons/bi"
 import * as ml5 from 'ml5';
 
-export async function getServerSideProps() {
-  return { props: {} };
-}
-
 function ClientOnly({ children, ...delegated }: any) {
   const [hasMounted, setHasMounted] = useState(false);
 
