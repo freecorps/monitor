@@ -68,7 +68,7 @@ const LeafletMap: React.FC<LeafletMapProps> = ({ espData, onMapClick }) => {
     const beerIcon = createSvgIcon(<BiMap />);
 
     if (!espData || espData.length === 0) {
-        return <p>Carregando mapa...</p>; // ou outro placeholder de sua escolha
+        return <p>Carregando mapa...</p>;
     }
 
     function LocationMarker() {

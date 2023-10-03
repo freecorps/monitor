@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import dynamic from 'next/dynamic';
 import 'leaflet/dist/leaflet.css';
@@ -42,7 +42,8 @@ const DynamicML5Predictor = dynamic(() => import('@/components/ML5Predictor'), {
 
 export default function Previsao() {
   const [espData, setEspData] = useState<ESP[]>([]);
-  const [mapClickHandler, setMapClickHandler] = useState<(lat: number, lng: number) => void>(() => () => { });
+  const mapClickHandlerRef = useRef<(lat: number, lng: number) => void>(() => { });
+  const [modelIsTrained, setModelIsTrained] = useState(false);
 
   useEffect(() => {
     const fetchEspData = async () => {
@@ -86,11 +87,12 @@ export default function Previsao() {
         <DynamicML5Predictor
           espData={espData}
           onPrediction={handlePrediction}
-          setMapClickHandler={setMapClickHandler}
+          setMapClickHandler={(handler) => { mapClickHandlerRef.current = handler; }}
+          setIsModelTrained={setModelIsTrained}
         />
         <DynamicLeafletMap espData={espData} onMapClick={(event) => {
           const { lat, lng } = event.latlng;
-          mapClickHandler(lat, lng);
+          mapClickHandlerRef.current(lat, lng);
         }} />
       </ClientOnly>
     </div>
