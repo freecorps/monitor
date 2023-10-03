@@ -1,20 +1,34 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import { Button, Select, SelectItem, Spacer } from "@nextui-org/react";
+import { Select, SelectItem, Spacer } from "@nextui-org/react";
 import { toast } from 'react-toastify';
 import DataCard from '@/components/dataCard';
+import DateTimeRangePicker from '@wojtekmaj/react-datetimerange-picker';
+import '@wojtekmaj/react-datetimerange-picker/dist/DateTimeRangePicker.css';
+import 'react-calendar/dist/Calendar.css';
+import 'react-clock/dist/Clock.css';
+
+type Reading = {
+  temperatura: number;
+  umidade: number;
+  data: Date;
+};
+
+type ValuePiece = Date | null;
+type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 export default function Previsao() {
-  const [espList, setEspList] = useState([]);
+  const [espList, setEspList] = useState<string[]>([]);
   const [selectedEsp, setSelectedEsp] = useState<string | undefined>(undefined);
-  const [espData, setEspData] = useState(null);
+  const [espData, setEspData] = useState<Reading[] | null>(null);
+  const [dateRange, setDateRange] = useState<Value>([new Date(), new Date()]);
 
   useEffect(() => {
     const fetchEspList = async () => {
       try {
         toast.info('Buscando ESPs...');
         const response = await fetch('/api/getIds');
-        const ids = await response.json();
+        const ids: string[] = await response.json();
         setEspList(ids);
         toast.success('ESPs carregados com sucesso!');
       } catch (error) {
@@ -41,38 +55,56 @@ export default function Previsao() {
         }),
       });
 
-      const data = await response.json();
-      setEspData(data);
+      const readings: Reading[] = await response.json();
+      setEspData(readings);
       toast.success(`Dados do ${espId} carregados com sucesso!`);
     } catch (error) {
       toast.error(`Erro ao buscar dados do ${espId}.`);
     }
   };
 
-  return (
-    <div className='flex flex-col items-start'>
-      <Select
-        className='min-w-[350px]'
-        label="Selecione um ESP"
-        placeholder="Selecione um ESP"
-        selectionMode="single"
-        value={selectedEsp}
-        onChange={handleEspChange}
-      >
-        {espList.map(espId => (
-          <SelectItem key={espId}>
-            {espId}
-          </SelectItem>
-        ))}
-      </Select>
+  const handleDateChange = (value: Value) => {
+    setDateRange(value);
+  }
 
-      {espData && (
+  let filteredReadings = espData || [];
+
+  if (Array.isArray(dateRange) && dateRange[0] && dateRange[1]) {
+    filteredReadings = filteredReadings.filter(reading =>
+      new Date(reading.data) >= dateRange[0]! && new Date(reading.data) <= dateRange[1]!
+    );
+  }
+
+  return (
+    <div className='flex flex-col items-center'>
+      <div className='flex flex-col gap-4'>
+        <Select
+          className='min-w-[350px]'
+          label="Selecione um ESP"
+          placeholder="Selecione um ESP"
+          selectionMode="single"
+          value={selectedEsp}
+          onChange={handleEspChange}
+        >
+          {espList.map(espId => (
+            <SelectItem key={espId}>
+              {espId}
+            </SelectItem>
+          ))}
+        </Select>
+
+        <div>
+          <DateTimeRangePicker value={dateRange} onChange={handleDateChange} />
+        </div>
+      </div>
+
+      {filteredReadings && filteredReadings.length > 0 && (
         <div className='mt-4'>
           <h2>Dados do {selectedEsp}</h2>
           <div className='columns-1 gap-4'>
-            {Object.keys(espData[0]).filter(key => key !== 'data' && key !== '_id').map(key => (
+            {Object.keys(filteredReadings[0]).filter(key => key !== 'data' && key !== '_id' && key !== 'readings').map(key => (
               <div key={key}>
-                <DataCard title={key} data={espData} />
+                <DataCard title={key} data={filteredReadings} />
                 <Spacer y={1} />
               </div>
             ))}

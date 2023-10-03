@@ -15,6 +15,7 @@ export const DataCard: React.FC<DataCardProps> = ({ title, data }) => {
             datasets: [{
                 label: key,
                 data: dataArray.map(item => item[key]),
+                fill: true,
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             }]
