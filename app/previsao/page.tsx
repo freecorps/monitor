@@ -7,6 +7,7 @@ import DateTimeRangePicker from '@wojtekmaj/react-datetimerange-picker';
 import '@wojtekmaj/react-datetimerange-picker/dist/DateTimeRangePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
+import "@/styles/bg.css"
 
 type Reading = {
   temperatura: number;
@@ -77,6 +78,7 @@ export default function Previsao() {
 
   return (
     <div className='flex flex-col items-center'>
+      <div className="galaxy"></div>
       <div className='flex flex-col gap-4'>
         <Select
           className='min-w-[350px]'

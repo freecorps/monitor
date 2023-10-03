@@ -5,6 +5,7 @@ import { Link } from "@nextui-org/react";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { title } from "@/components/primitives";
 import { GithubIcon, Logo, BookIcon } from "@/components/icons";
+import "@/styles/bg.css"
 
 export default function Home() {
 	return (
@@ -15,6 +16,8 @@ export default function Home() {
 				<h1 className={title()}>de ver a previsão do </h1>
 				<h1 className={title({ color: "violet" })}>tempo&nbsp;</h1>
 			</div>
+
+			<div className="galaxy"></div>
 
 			<div className="flex gap-3">
 				<Link

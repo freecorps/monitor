@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import dynamic from 'next/dynamic';
 import 'leaflet/dist/leaflet.css';
+import "@/styles/bg.css"
 
 type ESP = {
   _id: string;
@@ -83,6 +84,7 @@ export default function Previsao() {
 
   return (
     <div>
+      <div className="galaxy"></div>
       <ClientOnly>
         <DynamicML5Predictor
           espData={espData}

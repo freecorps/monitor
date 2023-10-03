@@ -9,24 +9,16 @@ import {
 	NavbarItem,
 	NavbarMenuItem,
 } from "@nextui-org/react";
-import { Button } from "@nextui-org/react";
-import { Kbd } from "@nextui-org/react";
 import { Link } from "@nextui-org/react";
-import { Input } from "@nextui-org/react";
 
 import { link as linkStyles } from "@nextui-org/theme";
 
-import { siteConfig } from "@/config/site";
 import NextLink from "next/link";
 import clsx from "clsx";
 
 import { ThemeSwitch } from "@/components/theme-switch";
 import {
-	TwitterIcon,
 	GithubIcon,
-	DiscordIcon,
-	HeartFilledIcon,
-	SearchIcon,
 } from "@/components/icons";
 
 import { Logo } from "@/components/icons";
