@@ -1,3 +1,5 @@
+![Meteor Logo](https://i.imgur.com/00fEvU5.png "Meteor Logo")
+
 # Estações Meteorológicas com ESPs 8266 & Next.js
 
 Este projeto foi desenvolvido para monitorar e exibir dados de estações meteorológicas baseadas em ESPs 8266. Utilizamos o Next.js para a interface do usuário e integramos com um banco de dados MongoDB para armazenar e recuperar os dados das estações.
@@ -13,6 +15,8 @@ Este projeto foi desenvolvido para monitorar e exibir dados de estações meteor
 - [next-themes](https://github.com/pacocoursey/next-themes)
 - [MongoDB](https://www.mongodb.com/pt-br)
 - [ESP8266](https://www.espressif.com/en/products/socs/esp8266)
+- [leafletjs](https://leafletjs.com/)
+- [ML5.js](https://ml5js.org/)
 
 ## Como Utilizar
 
