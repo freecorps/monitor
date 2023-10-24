@@ -95,7 +95,7 @@ export default function Previsao() {
           <div className='columns-1 gap-4'>
             {Object.keys(filteredReadings[0].data).filter(key => key !== 'data' && key !== '_id' && key !== 'readings').map(key => (
               <div key={key}>
-                <DataCard title={key} data={filteredReadings.map(reading => reading.data)} />
+                <DataCard title={key} data={filteredReadings} />
                 <Spacer y={1} />
               </div>
             ))}

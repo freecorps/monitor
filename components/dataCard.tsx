@@ -7,14 +7,21 @@ interface DataCardProps {
     data: any[];
 }
 
+type Reading = {
+    data: {
+        [key: string]: any;
+    };
+    timestamp: Date;
+};
+
 export const DataCard: React.FC<DataCardProps> = ({ title, data }) => {
 
-    function transformDataForChart(dataArray: any[], key: string) {
+    function transformDataForChart(dataArray: Reading[], key: string) {
         return {
-            labels: dataArray.map(item => new Date(item.data).toLocaleString()),
+            labels: dataArray.map(item => new Date(item.timestamp).toLocaleString()),
             datasets: [{
                 label: key,
-                data: dataArray.map(item => item[key]),
+                data: dataArray.map(item => item.data[key]),
                 fill: true,
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
