@@ -23,7 +23,7 @@ export default function Home() {
 				<Link
 					isExternal
 					as={NextLink}
-					href={"https://github.com/freecorps/monitor/wiki"}
+					href={"https://docs.freecorps.xyz/monitor/"}
 					className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
 				>
 					<BookIcon size={20}/>
