@@ -43,6 +43,11 @@ export default function Previsao() {
       });
 
       const readings: Reading[] = await response.json();
+      const check = readings as any
+      if (check.error) {
+        toast.error(`O servidor retornou um erro: ${check.error}`);
+        return;
+      }
       setEspData(readings);
       toast.success(`Dados do ${espId} carregados com sucesso!`);
     } catch (error) {
