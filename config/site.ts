@@ -1,20 +1,16 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-	name: "Meteoro",
-	description: "Meteoro - Um jeito fácil de monitorar o clima da sua casa",
+	name: "Monitor",
+	description: "Monitor - Um jeito fácil de monitorar seus sensores",
 	navItems: [
 		{
 			label: "Home",
 			href: "/",
 		}, 
 		{
-			label: "Previsão",
-			href: "/previsao",
-		},
-		{
-			label: "Mapa",
-			href: "/mapa",
+			label: "monitor",
+			href: "/monitor",
 		}
 	],
 	navMenuItems: [
@@ -23,15 +19,11 @@ export const siteConfig = {
 			href: "/",
 		},
 		{
-			label: "Mapa",
-			href: "/mapa",
-		},
-		{
-			label: "Previsão",
-			href: "/previsao",
+			label: "Monitor",
+			href: "/monitor",
 		}
 	],
 	links: {
-		github: "https://github.com/freecorps/meteoro",
+		github: "https://github.com/freecorps/monitor",
 	},
 };

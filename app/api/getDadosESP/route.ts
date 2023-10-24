@@ -11,7 +11,7 @@ export async function POST(request: Request) {
         });
     }
 
-    const mongoDB = new MongoDB("mongodb+srv://meteoro:readonly@cluster0.lhl5swf.mongodb.net/", "meteoro");
+    const mongoDB = new MongoDB(process.env.MONGODB_URI_READ!, process.env.MONGODB_DB!);
     const dados = await mongoDB.dadosDoESP(id);
 
     if (!dados) {
