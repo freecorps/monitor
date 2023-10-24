@@ -1,26 +1,28 @@
-![Meteor Logo](https://i.imgur.com/00fEvU5.png "Meteor Logo")
+# README
 
-# Estações Meteorológicas com ESPs 8266 & Next.js
+![Meteor Logo](https://i.imgur.com/00fEvU5.png)
+
+## Estações Meteorológicas com ESPs 8266 & Next.js
 
 Este projeto foi desenvolvido para monitorar e exibir dados de estações meteorológicas baseadas em ESPs 8266. Utilizamos o Next.js para a interface do usuário e integramos com um banco de dados MongoDB para armazenar e recuperar os dados das estações.
 
-## Tecnologias Utilizadas
+### Tecnologias Utilizadas
 
-- [Next.js 13](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
-- [MongoDB](https://www.mongodb.com/pt-br)
-- [ESP8266](https://www.espressif.com/en/products/socs/esp8266)
-- [leafletjs](https://leafletjs.com/)
-- [ML5.js](https://ml5js.org/)
+* [Next.js 13](https://nextjs.org/docs/getting-started)
+* [NextUI v2](https://nextui.org/)
+* [Tailwind CSS](https://tailwindcss.com/)
+* [Tailwind Variants](https://tailwind-variants.org)
+* [TypeScript](https://www.typescriptlang.org/)
+* [Framer Motion](https://www.framer.com/motion/)
+* [next-themes](https://github.com/pacocoursey/next-themes)
+* [MongoDB](https://www.mongodb.com/pt-br)
+* [ESP8266](https://www.espressif.com/en/products/socs/esp8266)
 
-## Como Utilizar
+### Como Utilizar
 
-### Instalação das Dependências
+Configure as variáveis e ambiente, elas se encontram no arquivo `.env.example`na raiz do projeto. Renomeie esse arquivo para `.env.local`e o deixe na raiz do projeto.
+
+#### Instalação das Dependências
 
 Antes de iniciar o servidor de desenvolvimento, instale as dependências necessárias:
 
@@ -28,7 +30,7 @@ Antes de iniciar o servidor de desenvolvimento, instale as dependências necess�
 npm install
 ```
 
-### Executando o Servidor de Desenvolvimento
+#### Executando o Servidor de Desenvolvimento
 
 Para iniciar o servidor de desenvolvimento, execute o seguinte comando:
 
@@ -36,9 +38,10 @@ Para iniciar o servidor de desenvolvimento, execute o seguinte comando:
 npm run dev
 ```
 
-## Contribuições
+### Contribuições
+
 Se você deseja contribuir para este projeto, sinta-se à vontade para enviar pull requests ou abrir issues com sugestões e feedbacks.
 
-## License
+### License
 
 Licensed under the [MIT license](https://github.com/freecorps/meteoro/blob/master/LICENSE).
